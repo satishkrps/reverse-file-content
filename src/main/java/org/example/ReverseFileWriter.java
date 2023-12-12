@@ -6,8 +6,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class ReverseFileWriter {
-    public static void writeBuffered(List<String> records, int bufSize) throws IOException {
-        Path path = Paths.get("src/main/resources/test1.txt");
+    public static void writeBuffered(List<String> records, int bufSize, String outputFileName) throws IOException {
+        Path path = Paths.get(outputFileName);
         try {
             FileWriter writer = new FileWriter(path.toFile());
             BufferedWriter bufferedWriter = new BufferedWriter(writer, bufSize);

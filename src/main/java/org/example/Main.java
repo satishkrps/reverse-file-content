@@ -11,24 +11,9 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-          final int RECORD_COUNT = 4000000;
-          try (BufferedReader reader =
-                       new BufferedReader(new FileReader("src/main/resources/test.txt"))) {
-              List<String> records = new ArrayList<>(RECORD_COUNT);
-              String line;
+        TextFileReader textFileReader = new TextFileReader();
+        textFileReader.readAndReverseTextFile("src/main/resources/Input.txt", "src/main/resources/output.txt");
 
-
-            while ((line = reader.readLine()) != null)  {
-                StringBuilder content = new StringBuilder();
-                    content.append(line);
-                    content.append("\n");
-                    records.add(String.valueOf(content.reverse()));
-
-            }
-              ReverseFileWriter.writeBuffered(records, 8192);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
